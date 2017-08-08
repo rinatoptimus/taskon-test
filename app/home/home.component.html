@@ -1,0 +1,168 @@
+<div class="container">
+    <div class="row">
+        <div class="page-header page-header--new-tasks">
+            <h1>Задания</h1>
+        </div>
+    	<div class="col-lg-12">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#new" aria-controls="new" role="tab" data-toggle="tab">Новые</a>
+                </li>
+                <li role="presentation">
+                    <a href="#processing" aria-controls="processing" role="tab" data-toggle="tab">В работе</a>
+                </li>
+                <li role="presentation">
+                    <a href="#on-approval" aria-controls="on-approval" role="tab" data-toggle="tab">На рассмотрении</a>
+                </li>
+                <li role="presentation">
+                    <a href="#completed" aria-controls="completed" role="tab" data-toggle="tab">Выполнены</a>
+                </li>
+
+                <li role="presentation">
+                    <a href="#cancelled" aria-controls="cancelled" role="tab" data-toggle="tab">Отменены</a>
+                </li>
+                <li role="presentation">
+                    <a href="#draft" aria-controls="draft" role="tab" data-toggle="tab">Черновики</a>
+                </li>
+
+                <li class="btn-task-add" role="presentation">
+                    <a class="btn-task-add__link" href="#add-task" aria-controls="add-task" role="tab" data-toggle="tab">
+                        <i class="fa fa-plus btn-task-add__fa-plus" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content tab-content--new-tasks">
+                <div role="tabpanel" class="tab-pane active" id="new">             
+                    <div class="container">
+                        <div class="row">                            
+                            <div class="col-lg-12">
+                                <div class="panel">
+                                    <div class="form-inline">
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <input type="text" [(ngModel)]="term" name="test">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <label>
+                                                    <input type="checkbox"> Персональное
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <label>
+                                                    <input type="checkbox"> Ночное
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <div class="checkbox">
+                                                    <label>
+                                                    <input type="checkbox"> Срочное
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <select class="form-control" id="sel1">
+                                                    <option>Никита Ласточкин</option>
+                                                    <option>Иван Иванов</option>
+                                                    <option>Петр Петров</option>
+                                                    <option>Сидор Сидоров</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Город</th>
+                                                <th>Название</th>
+                                                <th>Тип задания</th>
+                                                <th>Выполнить до</th>
+                                                <th>Сумма</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let task of tasks | filter:term; let i = index"> 
+                                                <td>{{i + 1}}</td>
+                                                <td>{{task.taskCity}}</td>
+                                                <td>{{task.taskName}}</td>
+                                                <td>{{task.taskType}}</td>
+                                                <td>{{task.taskDeadline}}</td>
+                                                <td>{{task.taskPrice}}</td>
+                                            </tr>  
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div role="tabpanel" class="tab-pane" id="processing">222</div>
+                <div role="tabpanel" class="tab-pane" id="on-approval">333</div>
+                <div role="tabpanel" class="tab-pane" id="completed">444</div>
+                <div role="tabpanel" class="tab-pane" id="cancelled">555</div>
+                <div role="tabpanel" class="tab-pane" id="draft">666</div>
+
+                <div role="tabpanel" class="tab-pane" id="add-task">
+                    <form>
+                        <div class="form-group">
+                            <label for="id">ID</label>
+                            <input type="text" class="form-control" id="id" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Город</label>
+                            <input type="text" class="form-control" id="city" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-name">Название</label>
+                            <input type="text" class="form-control" id="task-name" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-type">Тип задания</label>
+                            <input type="text" class="form-control" id="task-type" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-deadline">Выполнить до</label>
+                            <input type="text" class="form-control" id="task-deadline" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-price">Сумма</label>
+                            <input type="text" class="form-control" id="task-price" placeholder="" required>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="task-personal"> Персональное
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="task-nightly"> Ночное
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="task-urgent"> Срочное
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">Добавить</button>
+                    </form>
+                </div>
+            </div>  
+        </div>
+	</div>
+</div>

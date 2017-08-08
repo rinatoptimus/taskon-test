@@ -1,0 +1,13 @@
+.nav__balance {
+    margin: 0;
+    padding: 15px 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+.fa-circle--notification {
+    position: relative;
+    top: -10px;
+    left: -10px;
+    font-size: 10px;
+    color: red;
+}
